@@ -1,4 +1,4 @@
-package com.raidentrance.pojo.context;
+package com.raidentrance.connectivity;
 
 /**
  * @author alex
