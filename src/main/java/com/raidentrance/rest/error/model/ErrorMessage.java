@@ -20,7 +20,6 @@ public class ErrorMessage implements Serializable {
 	}
 
 	public ErrorMessage(boolean success, ErrorCode error) {
-		super();
 		this.success = success;
 		this.error = error;
 	}
@@ -39,6 +38,11 @@ public class ErrorMessage implements Serializable {
 
 	public void setError(ErrorCode error) {
 		this.error = error;
+	}
+
+	@Override
+	public String toString() {
+		return "ErrorMessage [success=" + success + ", error=" + error + "]";
 	}
 
 }

@@ -26,7 +26,7 @@ import com.raidentrance.rest.model.Ticker;
 import com.raidentrance.rest.model.TickerList;
 
 /**
- * @author maagapi
+ * @author raidentrance
  *
  */
 public class RestClient extends AbstractClient {
@@ -67,12 +67,11 @@ public class RestClient extends AbstractClient {
 		} else {
 			throw new ServiceException(response.readEntity(ErrorMessage.class));
 		}
-	}	
-	
-	
+	}
+
 	public static void main(String[] args) throws Exception {
 		RestClient client = new RestClient("https://api.bitso.com", "/v3", 3, 3, TimeUnit.SECONDS);
-		 TickerList tickers = client.getTickers();
+		TickerList tickers = client.getTickers();
 		log.info("Getting tickers ");
 		for (Payload payload : tickers.getPayload()) {
 			log.info(payload.toString());
@@ -80,6 +79,10 @@ public class RestClient extends AbstractClient {
 		log.info("Getting ripple ticker");
 		Ticker ripple = client.getTickerByBook("xrp_mxn");
 		log.info(ripple.toString());
+		log.info("Not existing ticker");
+		Ticker alex = client.getTickerByBook("alex");
+		log.info(alex.toString());
+
 	}
-	
+
 }

@@ -42,4 +42,9 @@ public class ErrorCode implements Serializable {
 		this.message = message;
 	}
 
+	@Override
+	public String toString() {
+		return "ErrorCode [code=" + code + ", message=" + message + "]";
+	}
+	
 }
